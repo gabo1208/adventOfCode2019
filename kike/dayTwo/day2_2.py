@@ -1,4 +1,3 @@
-from array import array
 f = open("input.txt", "r")
 output_expected = 19690720
 original_opcode = list(map(int, f.read().split(",")))
