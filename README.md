@@ -1,10 +1,10 @@
-# adventOfCode2019
+# [adventOfCode2019](https://adventofcode.com/)
 Ejercicios de advent of code =)
-Codigo de liga privadad de rappi: 417020-ef441d87
+Código de liga privadad de rappi: 417020-ef441d87
 
 ## Instrucciones
 ### - Crea una carpeta con tu nombre
-### - Haz tu desastre ahi para que todos lo veamos <3
+### - Haz tu desastre ahí para que todos lo veamos <3
 
 ##
 Happy coding! --
