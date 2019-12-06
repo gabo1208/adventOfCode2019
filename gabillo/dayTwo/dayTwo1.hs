@@ -19,17 +19,18 @@ processIntCodes i b matrix = processMatrix i b matrix newMatrix
   where newMatrix = drop (i * 4) matrix
 
 processMatrix :: Int -> Bool -> [Int] -> [Int] -> [Int]
-processMatrix i b matrix newMatrix | b = processIntCodes (i + 1) (invalidOrHalt (head newMatrix)) $ intCode matrix newMatrix
+processMatrix i b matrix newMatrix | b = processIntCodes (i + 1) (validOp (head newMatrix)) $ intCode matrix newMatrix
                                    | otherwise = matrix
 
-invalidOrHalt :: Int -> Bool
-invalidOrHalt o = o < 1 || o > 2
+validOp :: Int -> Bool
+validOp o = o == 1 || o == 2
 
-setNthElem :: (foldable a) -> [a]
+setNthElement :: ([a], [a])-> a -> [a]
+setNthElement (xs, ys) x = xs ++ [x] ++ (tail ys)
 
 intCode :: [Int] -> [Int] -> [Int]
-intCode matrix [o, x, y, p] | (o == 99) = matrix
-                            | (o == 1) = splitAt p matrix
-                            | (o == 2) = splitAt p matrix
+intCode matrix (o:x:y:p:xs) | (o == 99) = matrix
+                            | (o == 1) = setNthElement (splitAt p matrix) (matrix !! x + matrix !! y)
+                            | (o == 2) = setNthElement (splitAt p matrix) (matrix !! x * matrix !! y)
                             | otherwise = []
-  where () =  
+intCode matrix _ = matrix
