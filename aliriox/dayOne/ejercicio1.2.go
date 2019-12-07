@@ -26,11 +26,10 @@ func main() {
 
 func proccessLine(line int) int {
 	var acu int
-	for line > 0 {
+	for line > 5 {
 		line = line/3 - 2
-		if line > 0 {
-			acu = acu + line
-		}
+		acu = acu + line
 	}
 	return acu
 }
+
