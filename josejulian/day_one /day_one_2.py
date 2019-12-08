@@ -7,9 +7,9 @@ def calculate_fuel(x):
 
 
 def calculate_fuel_com(x):
-    result = x
+    result = 0
     cond = calculate_fuel(x)
-    while cond >= 0:
+    while cond > 0:
         result += cond
         cond = calculate_fuel(cond)
     return result
@@ -20,10 +20,8 @@ def read_file():
     with open('input.txt') as f:
         for linea in f:
             if linea.strip():
-                value = calculate_fuel(linea)
-                result = value
-                result_rec = calculate_fuel_com(value)
-    print(result + result_rec)
+                result += calculate_fuel_com(int(linea))
+    print(result)
 
 
 if __name__ == "__main__":
